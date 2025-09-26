@@ -53,9 +53,7 @@ public class AccountManager {
                             connection.setAutoCommit(true);
                         }
 
-                    else {
-                        System.out.println("Insufficient balance");
-                    }
+
                 }
                 else {
                     System.out.println("invalid pin");
@@ -134,7 +132,7 @@ public class AccountManager {
                 String security_pin = scanner.nextLine();
                 try {
                     connection.setAutoCommit(false);
-                    if (sender_account_number! =0 && reciever_account_number!=0) {
+                    if (sender_account_number !=0 && reciever_account_number !=0) {
                         PreparedStatement preparedStatement = connection.prepareStatement("select * from accounts where account_number = ? and security_pin= ?");
                         preparedStatement.setLong(1,sender_account_number);
                         preparedStatement.setString(2, security_pin);
