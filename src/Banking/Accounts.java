@@ -14,12 +14,13 @@ public class Accounts {
 
       public long open_account(String email) {
          if (!account_exist(email)) {
-             String open_account_query = " insert into acocunts (account_number , full_name, email, balance,security_pin) values (?,?,?,?,?)";
+             String open_account_query = " insert into accounts (account_number , full_name, email, balance,security_pin) values (?,?,?,?,?)";
              scanner.nextLine();
              System.out.println("Enter your full name");
              String full_name = scanner.nextLine();
              System.out.println("Enter initial amount: ");
              double balance = scanner.nextDouble();
+             scanner.nextLine();
              System.out.println("Enter security pin: ");
              String security_pin = scanner.nextLine();
              try {
@@ -52,7 +53,7 @@ public class Accounts {
              preparedStatement.setString(1,email);
              ResultSet resultSet = preparedStatement.executeQuery();
              if (resultSet.next()) {
-                 return resultSet.getLong("accont_number");
+                 return resultSet.getLong("account_number");
              }
          } catch (SQLException e) {
              e.printStackTrace();
@@ -67,7 +68,7 @@ public class Accounts {
              ResultSet resultSet = statement.executeQuery("select account_number from accounts order by account_number desc limit 1");
              if (resultSet.next()) {
                  long last_account_number = resultSet.getLong("account_number");
-                 return last_account_number;
+                 return last_account_number+1;
              }
              else {
                  return 10000100;

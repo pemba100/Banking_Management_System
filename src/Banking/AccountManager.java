@@ -25,6 +25,7 @@ public class AccountManager {
         scanner.nextLine();
         System.out.println("Enter amount");
         double amount = scanner.nextDouble();
+        scanner.nextLine();
         System.out.println("enter security pin");
         String security_pin = scanner.nextLine();
         try {
@@ -71,9 +72,10 @@ public class AccountManager {
 
 
     public void debit_money(long account_number) throws SQLException {
-           scanner.nextLine();
              System.out.println("Enter amount");
              double amount = scanner.nextDouble();
+             scanner.nextLine();
+
              System.out.println("enter security pin");
              String security_pin = scanner.nextLine();
              try {
