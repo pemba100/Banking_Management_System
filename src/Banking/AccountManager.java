@@ -122,7 +122,7 @@ public class AccountManager {
          }
 
 
-// hk
+// hkl
             public  void transfer_money(long sender_account_number) throws SQLException {
                 scanner.nextLine();
                 System.out.println("enter reciever account number");
